@@ -25,6 +25,14 @@ Also, be able to install this app and run as Progressive Web App
 
 - npm
 
+## Tools
+
+- Create-react-app cli
+- Tachyons: CSS framework
+- Robohash API
+- JSONPlaceholder: Fetch the robots data
+- Gh-pages
+
 ## Author
 
 [Ilan Gold](https://github.com/IlanG96)
