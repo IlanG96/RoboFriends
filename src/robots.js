@@ -70,7 +70,28 @@ export const robots = [
     email:"leonandsani@gmail.com",
     username:"Leon500"
 
-}
+},
+{
+    id:counter++,
+    name:"Robo-cop",
+    email:"ROBO@gmail.com",
+    username:"ROBO"
+
+},
+{
+    id:counter++,
+    name:"Yakir Eiluz",
+    email:"Ye@yahoo.com",
+    username:"yakir"
+
+},
+{
+    id:counter++,
+    name:"Bar Levi",
+    email:"BarLevi@yahoo.com",
+    username:"BarL"
+
+},
 
 
 ]
