@@ -5,21 +5,45 @@ import SearchBox from '../components/SearchBox.js';
 import './App.css'
 import Scroll from "../components/Scroll";
 import ErrorBoundry from "../components/ErrorBoundry";
+import NavBar from "../components/NavBar";
+import Register from "../components/Register";
 
 class App extends Component{
     constructor(){
         super();
         this.state={
-            robots: robots, //robots is the name of the arr we want to use in case of alot of arr we change it. and load it 
-            searchfield:''
+            robots: [], //robots is the name of the arr we want to use in case of alot of arr we change it. and load it 
+            searchfield:'',
+            isShowAdd: true
         }
-    }
+    };
 
-    // componentDidMount() { //the link in fetch is if i want a diffrent source to my arr
-    //     fetch('https://jsonplaceholder.typicode.com/users')
-    //       .then(response=> response.json())
-    //       .then(users => {this.setState({ robots: users})});
-    //   }
+    handleAddClick = () => {
+        const {isShowAdd}=this.state;
+        if(isShowAdd){
+            this.setState({isShowAdd : false})
+        }
+        else{
+            this.setState({isShowAdd : true})
+        }
+        console.log(isShowAdd);
+          };
+
+
+    componentDidMount() { //the link in fetch is if i want a diffrent source to my arr
+        fetch("https://robofriends-server.herokuapp.com/getrobots",{
+            method : 'GET',
+            headers: {'Content-Type': 'application/json'},
+        })
+          .then(response=> response.json())
+          .then(users => {
+            this.setState({ robots: users})
+        });
+      }
+
+    onRobotsChange=(newrobots)=>{
+        this.setState({robots:newrobots});
+    }  
 
     onSearchChange=(event)=>{
         this.setState({searchfield: event.target.value})
@@ -34,6 +58,8 @@ class App extends Component{
         <h1>Loading</h1> : //else
         (
         <div className="tc">
+            <NavBar handleAddClick={this.handleAddClick} />
+            <Register isShowAdd={this.state.isShowAdd} onRobotsChange={this.onRobotsChange} />
             <h1 className="f1">RoboFriends</h1>
             <SearchBox searchChange={this.onSearchChange}/>
             <Scroll>
