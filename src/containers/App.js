@@ -32,7 +32,7 @@ class App extends Component{
 
     componentDidMount() { //the link in fetch is if i want a diffrent source to my arr
         fetch("https://robofriends-server.herokuapp.com/getrobots",{
-            method : 'GET',
+            method : 'post',
             headers: {'Content-Type': 'application/json'},
         })
           .then(response=> response.json())
