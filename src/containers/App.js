@@ -26,7 +26,6 @@ class App extends Component{
         else{
             this.setState({isShowAdd : true})
         }
-        console.log(isShowAdd);
           };
 
 
