@@ -57,11 +57,11 @@ class App extends Component{
         <h1>Loading</h1> : //else
         (
         <div className="tc">
-            <ParticlesInit />
             <NavBar handleAddClick={this.handleAddClick} />
             <Register isShowAdd={this.state.isShowAdd} onRobotsChange={this.onRobotsChange} />
             <h1 className="f1">RoboFriends</h1>
             <SearchBox searchChange={this.onSearchChange}/>
+            <ParticlesInit />
             <Scroll>
             <ErrorBoundry>
                 <CardList robots={filterdRobots} />
