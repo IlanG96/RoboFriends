@@ -1,12 +1,12 @@
 import React,{Component} from "react";
 import CardList from "../components/CardList";
-import { robots } from '../robots';
 import SearchBox from '../components/SearchBox.js';
 import './App.css'
 import Scroll from "../components/Scroll";
 import ErrorBoundry from "../components/ErrorBoundry";
 import NavBar from "../components/NavBar";
 import Register from "../components/Register";
+import ParticlesInit from "./ParticlesInit";
 
 class App extends Component{
     constructor(){
@@ -57,6 +57,7 @@ class App extends Component{
         <h1>Loading</h1> : //else
         (
         <div className="tc">
+            <ParticlesInit />
             <NavBar handleAddClick={this.handleAddClick} />
             <Register isShowAdd={this.state.isShowAdd} onRobotsChange={this.onRobotsChange} />
             <h1 className="f1">RoboFriends</h1>
